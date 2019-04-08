@@ -1,0 +1,17 @@
+{
+  "name": "traffic-light-control",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Carlos Paelinck",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prettier": "prettier --write \"./*.js\""
+  },
+  "dependencies": {
+    "onoff": "^4.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}

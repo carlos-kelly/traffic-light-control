@@ -7,21 +7,21 @@ const delay = time => new Promise(resolve => setTimeout(resolve, time));
 
 const resetPins = async () =>
   await Promise.all([
-    redPin.write(Gpio.LOW),
-    yellowPin.write(Gpio.LOW),
-    greenPin.write(Gpio.LOW),
+    redPin.write(Gpio.HIGH),
+    yellowPin.write(Gpio.HIGH),
+    greenPin.write(Gpio.HIGH),
   ]);
 
 const performSequence = async () => {
-  await greenPin.write(Gpio.HIGH);
-  await delay(7000);
   await greenPin.write(Gpio.LOW);
-  await yellowPin.write(Gpio.HIGH);
-  await delay(2000);
-  await yellowPin.write(Gpio.LOW);
-  await redPin.write(Gpio.HIGH);
   await delay(7000);
+  await greenPin.write(Gpio.HIGH);
+  await yellowPin.write(Gpio.LOW);
+  await delay(2000);
+  await yellowPin.write(Gpio.HIGH);
   await redPin.write(Gpio.LOW);
+  await delay(7000);
+  await redPin.write(Gpio.HIGH);
 };
 
 const loop = () => performSequence().then(loop);
